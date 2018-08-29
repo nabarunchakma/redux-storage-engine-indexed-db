@@ -1,6 +1,6 @@
 import idbKeyVal from 'idb-keyval';
 
-const idb = function idb(store) {
+const reduxStorageEngineIndexedDB = (store) => {
     return {
         load() {
             return idbKeyVal.get(store);
@@ -12,4 +12,4 @@ const idb = function idb(store) {
     };
 };
 
-export default idb;
+export default reduxStorageEngineIndexedDB;
