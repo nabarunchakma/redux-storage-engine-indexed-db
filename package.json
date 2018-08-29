@@ -39,11 +39,10 @@
     "eslint": "^1.10.3",
     "eslint-config-michaelcontento": "^1.1.1",
     "eslint-plugin-mocha-only": "0.0.3",
-    "idb-keyval": "^2.3.0",
     "mocca": "^1.0.3",
     "release-it": "^2.3.1"
   },
   "dependencies": {
-    "idb-keyval": "^2.3.0"
+    "idb-keyval": "^2.5.1"
   }
 }
