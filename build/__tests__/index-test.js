@@ -4,28 +4,26 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 describe('engine', function () {
     var returnVal = 'SOME_VAL';
-    var idbKeyVal = {
-        set: sinon.stub().returns(new Promise(function (resolve) {
-            resolve(returnVal);
-        })),
-        get: sinon.stub().returns(new Promise(function (resolve) {
-            resolve(returnVal);
-        }))
-    };
+    var set = sinon.stub().returns(new Promise(function (resolve) {
+        resolve(returnVal);
+    }));
+    var get = sinon.stub().returns(new Promise(function (resolve) {
+        resolve(returnVal);
+    }));
     describe('check proxies', function () {
-        it('should call the idbKeyVal set method and return the response as it is', _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+        it('should call the set method and return the response as it is', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
             var result;
             return regeneratorRuntime.wrap(function _callee$(_context) {
                 while (1) {
                     switch (_context.prev = _context.next) {
                         case 0:
                             _context.next = 2;
-                            return idbKeyVal.set('key', 'val');
+                            return set('key', 'val');
 
                         case 2:
                             result = _context.sent;
 
-                            idbKeyVal.set.should.have.been.calledWith('key', 'val');
+                            set.should.have.been.calledWith('key', 'val');
                             result.should.equal(returnVal);
 
                         case 5:
@@ -36,19 +34,19 @@ describe('engine', function () {
             }, _callee, undefined);
         })));
 
-        it('should call the idbKeyVal get method and return the response as it is', _asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
+        it('should call the get method and return the response as it is', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
             var result;
             return regeneratorRuntime.wrap(function _callee2$(_context2) {
                 while (1) {
                     switch (_context2.prev = _context2.next) {
                         case 0:
                             _context2.next = 2;
-                            return idbKeyVal.get('key');
+                            return get('key');
 
                         case 2:
                             result = _context2.sent;
 
-                            idbKeyVal.get.should.have.been.calledWith('key');
+                            get.should.have.been.calledWith('key');
                             result.should.equal(returnVal);
 
                         case 5:

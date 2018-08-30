@@ -6,17 +6,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _idbKeyval = require('idb-keyval');
 
-var _idbKeyval2 = _interopRequireDefault(_idbKeyval);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-exports['default'] = function (store) {
+var reduxStorageEngineIndexedDB = function reduxStorageEngineIndexedDB(store) {
     return {
         load: function load() {
-            return _idbKeyval2['default'].get(store);
+            return (0, _idbKeyval.get)(store);
         },
-        save: function save(state) {
-            return _idbKeyval2['default'].set(store, state);
+        save: function save(states) {
+            return (0, _idbKeyval.set)(store, states);
         }
     };
 };
+
+exports['default'] = reduxStorageEngineIndexedDB;

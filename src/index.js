@@ -1,13 +1,13 @@
-import idbKeyVal from 'idb-keyval';
+import { set, get } from 'idb-keyval';
 
 const reduxStorageEngineIndexedDB = (store) => {
     return {
         load() {
-            return idbKeyVal.get(store);
+            return get(store);
         },
 
         save(states) {
-            return idbKeyVal.set(store, states);
+            return set(store, states);
         }
     };
 };
