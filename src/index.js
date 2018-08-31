@@ -2,12 +2,12 @@ import { set, get } from 'idb-keyval';
 
 const reduxStorageEngineIndexedDB = (store) => {
     return {
-        load() {
-            return get(store);
+        load: async () => {
+            return await get(store);
         },
 
-        save(states) {
-            return set(store, states);
+        save: async (states) => {
+            return await set(store, states);
         }
     };
 };
